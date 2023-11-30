@@ -21,4 +21,12 @@ function renderQuestion(question) {
   QuestionEl.innerText = question.question;
   let quizEl = document.querySelector("#quiz");
   quizEl.append(QuestionEl);
+  let AnswerEl = document.createElement("input")
+  AnswerEl.classList.add()
+  AnswerEl.type="radio";
+  AnswerEl.id="Answer1"
+  let labelEl = document.createElement("label");
+  labelEl.for="Answer1";
+  labelEl.innerText = question.incorrect_answers[0];
+  quizEl.append(AnswerEl,labelEl);
 }
