@@ -1,8 +1,12 @@
 "use strict";
 
+import { presetDataSet } from "./dataset.js";
+
+const IN_DEVELOPMENT = true;
+
 let Url = "https://opentdb.com/api.php?amount=10";
 async function getData() {
-  let res = await fetch(Url);
+  let res = IN_DEVELOPMENT ? await presetDataSet() : await fetch(Url);
   let data = await res.json();
   return data.results;
 }
