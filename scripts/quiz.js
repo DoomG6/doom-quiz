@@ -9,3 +9,12 @@ async function getData() {
 
 let Questions = await getData();
 console.log(Questions);
+renderQuestion(Questions[0]);
+
+function renderQuestion(question) {
+  let QuestionEl = document.createElement("div");
+  QuestionEl.classList.add("Quizquestions");
+  QuestionEl.innerText = question.question;
+  let quizEl = document.querySelector("#quiz");
+  quizEl.append(QuestionEl);
+}
