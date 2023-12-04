@@ -24,7 +24,7 @@ function clickAnswerHandler(e) {
   console.log({ value });
   if (currentQuestion.correct_answer === value) {
     console.log(`You choose the right one: ${value}`);
-     Score +=1;
+    Score += 1;
   } else {
     console.log(`Sorry, that's wrong`);
   }
@@ -38,28 +38,20 @@ function clickAnswerHandler(e) {
   }
 }
 
-let nameData = JSON.parse(localStorage.getItem("nameData")) || []
-
+let nameData = JSON.parse(localStorage.getItem("nameData")) || [];
 
 let formName = document.querySelector("#form-name");
-formName.addEventListener("submit",function(e){
+formName.addEventListener("submit", function (e) {
   e.preventDefault();
   let Name = document.querySelector("#Name");
-  console.log(Name.value,Score)
-  nameData.push({  
+  console.log(Name.value, Score);
+  nameData.push({
     name: Name.value,
-    score: Score
+    score: Score,
   });
   localStorage.setItem("nameData", JSON.stringify(nameData));
-  window.location.href="./index.html";
+  window.location.href = "./index.html";
 });
-
-
-
-
-
-
-
 
 function renderQuestion(question) {
   let QuestionEl = document.createElement("div");

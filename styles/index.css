@@ -1,1 +1,14 @@
 @import url('./reset.css');
+
+.rank {
+  display: flex;
+  flex-direction: row;
+  height: 10rem;
+  gap: 1rem;
+  overflow-y: auto;
+  align-items: flex-end;
+}
+
+.rank__bar {
+  background-color: salmon
+}
