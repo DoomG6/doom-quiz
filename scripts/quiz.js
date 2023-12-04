@@ -16,12 +16,15 @@ let Questions = await getData();
 console.log(Questions);
 let currentQuestion = renderQuestion(Questions.shift());
 
+let Score = 0;
+
 function clickAnswerHandler(e) {
   let value = e.target.value;
   if (!value) return;
   console.log({ value });
   if (currentQuestion.correct_answer === value) {
     console.log(`You choose the right one: ${value}`);
+     Score +=1;
   } else {
     console.log(`Sorry, that's wrong`);
   }
@@ -29,10 +32,27 @@ function clickAnswerHandler(e) {
   if (Questions.length === 0) {
     let formName = document.querySelector("#form-name");
     formName.style.display = "block";
+    console.log(Score);
   } else {
     currentQuestion = renderQuestion(Questions.shift());
   }
 }
+
+let formName = document.querySelector("#form-name");
+formName.addEventListener("submit",function(e){
+  e.preventDefault();
+  let Name = document.querySelector("#Name");
+  console.log(Name.value,Score)
+  window.location.href="./index.html";
+});
+
+
+
+
+
+
+
+
 
 function renderQuestion(question) {
   let QuestionEl = document.createElement("div");
