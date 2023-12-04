@@ -23,10 +23,15 @@ function clickAnswerHandler(e) {
   if (currentQuestion.correct_answer === value) {
     console.log(`You choose the right one: ${value}`);
   } else {
-    console.log(`Sorry, that's wrong`);    
+    console.log(`Sorry, that's wrong`);
   }
-  document.querySelector("#quiz").innerHTML = "";  
-  currentQuestion = renderQuestion(Questions.shift());
+  document.querySelector("#quiz").innerHTML = "";
+  if (Questions.length === 0) {
+    let formName = document.querySelector("#form-name");
+    formName.style.display = "block";
+  } else {
+    currentQuestion = renderQuestion(Questions.shift());
+  }
 }
 
 function renderQuestion(question) {
