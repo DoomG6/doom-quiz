@@ -38,14 +38,21 @@ function clickAnswerHandler(e) {
   }
 }
 
+let nameData = JSON.parse(localStorage.getItem("nameData")) || []
+
+
 let formName = document.querySelector("#form-name");
 formName.addEventListener("submit",function(e){
   e.preventDefault();
   let Name = document.querySelector("#Name");
   console.log(Name.value,Score)
+  nameData.push({  
+    name: Name.value,
+    score: Score
+  });
+  localStorage.setItem("nameData", JSON.stringify(nameData));
   window.location.href="./index.html";
 });
-
 
 
 
