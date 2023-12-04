@@ -14,7 +14,7 @@ async function getData() {
 
 let Questions = await getData();
 console.log(Questions);
-let currentQuestion = renderQuestion(Questions[0]);
+let currentQuestion = renderQuestion(Questions.shift());
 
 function clickAnswerHandler(e) {
   let value = e.target.value;
@@ -23,8 +23,10 @@ function clickAnswerHandler(e) {
   if (currentQuestion.correct_answer === value) {
     console.log(`You choose the right one: ${value}`);
   } else {
-    console.log(`Sorry, that's wrong`);
+    console.log(`Sorry, that's wrong`);    
   }
+  document.querySelector("#quiz").innerHTML = "";  
+  currentQuestion = renderQuestion(Questions.shift());
 }
 
 function renderQuestion(question) {
