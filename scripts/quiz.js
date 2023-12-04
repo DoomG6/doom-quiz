@@ -14,7 +14,18 @@ async function getData() {
 
 let Questions = await getData();
 console.log(Questions);
-renderQuestion(Questions[0]);
+let currentQuestion = renderQuestion(Questions[0]);
+
+function clickAnswerHandler(e) {
+  let value = e.target.value;
+  if (!value) return;
+  console.log({ value });
+  if (currentQuestion.correct_answer === value) {
+    console.log(`You choose the right one: ${value}`);
+  } else {
+    console.log(`Sorry, that's wrong`);
+  }
+}
 
 function renderQuestion(question) {
   let QuestionEl = document.createElement("div");
@@ -31,6 +42,7 @@ function renderQuestion(question) {
   answers = shuffleArray(answers);
 
   let fieldSetEl = document.createElement("fieldset");
+  fieldSetEl.addEventListener("click", clickAnswerHandler);
   quizEl.append(fieldSetEl);
 
   for (let i = 0; i < answers.length; i++) {
@@ -49,4 +61,6 @@ function renderQuestion(question) {
     labelEl.innerText = answer;
     fieldSetEl.append(AnswerEl, labelEl);
   }
+
+  return question;
 }
