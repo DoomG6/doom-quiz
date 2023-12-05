@@ -15,7 +15,7 @@ async function getQuestions() {
 let questions = await getQuestions();
 let currentQuestion = renderQuestion(questions.shift());
 
-let Score = 0;
+let score = 0;
 
 function clickAnswerHandler(e) {
   let value = e.target.value;
@@ -23,7 +23,7 @@ function clickAnswerHandler(e) {
   console.log({ value });
   if (currentQuestion.correct_answer === value) {
     console.log(`You choose the right one: ${value}`);
-    Score += 1;
+    score += 1;
   } else {
     console.log(`Sorry, that's wrong`);
   }
@@ -31,9 +31,9 @@ function clickAnswerHandler(e) {
   if (questions.length === 0) {
     let formName = document.querySelector("#form-name");
     formName.style.display = "block";
-    console.log(Score);
+    console.log(score);
     let yourScore = document.querySelector("#score__yours");
-    yourScore.innerText = Score;
+    yourScore.innerText = score;
   } else {
     currentQuestion = renderQuestion(questions.shift());
   }
@@ -45,10 +45,10 @@ let formName = document.querySelector("#form-name");
 formName.addEventListener("submit", function (e) {
   e.preventDefault();
   let Name = document.querySelector("#Name");
-  console.log(Name.value, Score);
+  console.log(Name.value, score);
   players.push({
     name: Name.value,
-    score: Score,
+    score: score,
   });
   localStorage.setItem("nameData", JSON.stringify(players));
   window.location.href = "./index.html";
