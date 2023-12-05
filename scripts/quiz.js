@@ -21,7 +21,7 @@ async function main() {
 
 function shiftQuestion() {
   currentQuestion = questions.shift();
-  renderQuestion(currentQuestion);
+  renderQuiz(currentQuestion);
 }
 
 function renderNextQuestion() {
@@ -75,10 +75,11 @@ function renderAnswer(fieldSetEl, answer, id) {
   let labelEl = document.createElement("label");
   labelEl.htmlFor = id;
   labelEl.innerText = answer;
+
   fieldSetEl.append(answerEl, labelEl);
 }
 
-function renderQuestion(question) {
+function renderQuiz(question) {
   let questionEl = document.createElement("div");
   questionEl.classList.add("Quizquestions");
   questionEl.innerText = question.question;
