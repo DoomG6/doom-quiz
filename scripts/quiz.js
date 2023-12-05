@@ -86,12 +86,12 @@ function renderAnswer(fieldSetEl, answer, id) {
   fieldSetEl.append(answerEl, labelEl);
 }
 
-function assembleAnswers(question) {
+function assembleAnswers(quiz) {
   let answers = [];
-  answers.push(question.correct_answer);
+  answers.push(quiz.correct_answer);
 
-  for (let i = 0; i < question.incorrect_answers.length; i++) {
-    answers.push(question.incorrect_answers[i]);
+  for (let i = 0; i < quiz.incorrect_answers.length; i++) {
+    answers.push(quiz.incorrect_answers[i]);
   }
 
   answers = shuffleArray(answers);
