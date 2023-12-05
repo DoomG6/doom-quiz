@@ -64,10 +64,10 @@ function scoreFormSubmitHandler(e) {
 
 scoreForm.addEventListener("submit", scoreFormSubmitHandler);
 
-function renderQuestion(quizEl, question) {
+function renderQuestion(quizEl, quiz) {
   let questionEl = document.createElement("div");
   questionEl.classList.add("Quizquestions");
-  questionEl.innerText = question.question;
+  questionEl.innerText = quiz.question;
   quizEl.append(questionEl);
 }
 
