@@ -4,6 +4,8 @@ import { presetDataSet } from "./dataset.js";
 import { shuffleArray } from "./utils.js";
 
 const IN_DEVELOPMENT = true;
+let score = 0;
+let currentQuestion;
 
 async function getQuestions() {
   let url = "https://opentdb.com/api.php?amount=10";
@@ -13,9 +15,8 @@ async function getQuestions() {
 }
 
 let questions = await getQuestions();
-let currentQuestion = renderQuestion(questions.shift());
-
-let score = 0;
+currentQuestion = questions.shift();
+renderQuestion(currentQuestion);
 
 function renderNextQuestion() {
   document.querySelector("#quiz").innerHTML = "";
@@ -26,7 +27,8 @@ function renderNextQuestion() {
     let yourScore = document.querySelector("#score__yours");
     yourScore.innerText = score;
   } else {
-    currentQuestion = renderQuestion(questions.shift());
+    currentQuestion = questions.shift();
+    renderQuestion(currentQuestion);
   }
 }
 
@@ -92,6 +94,4 @@ function renderQuestion(question) {
     labelEl.innerText = answer;
     fieldSetEl.append(AnswerEl, labelEl);
   }
-
-  return question;
 }
