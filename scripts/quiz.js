@@ -65,11 +65,11 @@ function scoreFormSubmitHandler(e) {
 scoreForm.addEventListener("submit", scoreFormSubmitHandler);
 
 function renderQuestion(question) {
-  let QuestionEl = document.createElement("div");
-  QuestionEl.classList.add("Quizquestions");
-  QuestionEl.innerText = question.question;
+  let questionEl = document.createElement("div");
+  questionEl.classList.add("Quizquestions");
+  questionEl.innerText = question.question;
   let quizEl = document.querySelector("#quiz");
-  quizEl.append(QuestionEl);
+  quizEl.append(questionEl);
 
   let answers = [];
   answers.push(question.correct_answer);
@@ -86,16 +86,16 @@ function renderQuestion(question) {
     let answer = answers[i];
     let id = `answer_${i}`;
 
-    let AnswerEl = document.createElement("input");
-    AnswerEl.classList.add();
-    AnswerEl.type = "radio";
-    AnswerEl.id = id;
-    AnswerEl.name = "quiz";
-    AnswerEl.value = answer;
+    let answerEl = document.createElement("input");
+    answerEl.classList.add();
+    answerEl.type = "radio";
+    answerEl.id = id;
+    answerEl.name = "quiz";
+    answerEl.value = answer;
 
     let labelEl = document.createElement("label");
     labelEl.htmlFor = id;
     labelEl.innerText = answer;
-    fieldSetEl.append(AnswerEl, labelEl);
+    fieldSetEl.append(answerEl, labelEl);
   }
 }
