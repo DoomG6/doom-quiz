@@ -20,18 +20,16 @@ let score = 0;
 function clickAnswerHandler(e) {
   let value = e.target.value;
   if (!value) return;
-  console.log({ value });
   if (currentQuestion.correct_answer === value) {
-    console.log(`You choose the right one: ${value}`);
     score += 1;
   } else {
+    // TODO: do the wrong answer style attach here
     console.log(`Sorry, that's wrong`);
   }
   document.querySelector("#quiz").innerHTML = "";
   if (questions.length === 0) {
     let formName = document.querySelector("#form-name");
     formName.style.display = "block";
-    console.log(score);
     let yourScore = document.querySelector("#score__yours");
     yourScore.innerText = score;
   } else {
@@ -45,7 +43,6 @@ let formName = document.querySelector("#form-name");
 formName.addEventListener("submit", function (e) {
   e.preventDefault();
   let Name = document.querySelector("#Name");
-  console.log(Name.value, score);
   players.push({
     name: Name.value,
     score: score,
