@@ -8,7 +8,7 @@ let score = 0;
 let quizzes = [];
 let players = [];
 let scoreForm;
-let currentQuestion;
+let currentQuiz;
 
 await main();
 
@@ -20,8 +20,8 @@ async function main() {
 }
 
 function shiftQuiz() {
-  currentQuestion = quizzes.shift();
-  renderQuiz(currentQuestion);
+  currentQuiz = quizzes.shift();
+  renderQuiz(currentQuiz);
 }
 
 function renderNextQuestion() {
@@ -40,7 +40,7 @@ function clickAnswerHandler(e) {
   let value = e.target.value;
   if (!value) return;
 
-  if (currentQuestion.correct_answer === value) {
+  if (currentQuiz.correct_answer === value) {
     score += 1;
   } else {
     // TODO: do the wrong answer style attach here
