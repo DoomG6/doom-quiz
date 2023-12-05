@@ -28,29 +28,29 @@ function clickAnswerHandler(e) {
     console.log(`Sorry, that's wrong`);
   }
   document.querySelector("#quiz").innerHTML = "";
-  if (Questions.length === 0) {
+  if (questions.length === 0) {
     let formName = document.querySelector("#form-name");
     formName.style.display = "block";
     console.log(Score);
     let yourScore = document.querySelector("#score__yours");
     yourScore.innerText = Score;
   } else {
-    currentQuestion = renderQuestion(Questions.shift());
+    currentQuestion = renderQuestion(questions.shift());
   }
 }
 
-let nameData = JSON.parse(localStorage.getItem("nameData")) || [];
+let players = JSON.parse(localStorage.getItem("nameData")) || [];
 
 let formName = document.querySelector("#form-name");
 formName.addEventListener("submit", function (e) {
   e.preventDefault();
   let Name = document.querySelector("#Name");
   console.log(Name.value, Score);
-  nameData.push({
+  players.push({
     name: Name.value,
     score: Score,
   });
-  localStorage.setItem("nameData", JSON.stringify(nameData));
+  localStorage.setItem("nameData", JSON.stringify(players));
   window.location.href = "./index.html";
 });
 
