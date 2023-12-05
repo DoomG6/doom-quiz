@@ -24,81 +24,6 @@ function shiftQuiz() {
   renderQuiz(currentQuiz);
 }
 
-function renderNextQuiz() {
-  document.querySelector("#quiz").innerHTML = "";
-
-  if (quizzes.length === 0) {
-    scoreForm.style.display = "block";
-    let playerScore = document.querySelector("#score__yours");
-    playerScore.innerText = score;
-  } else {
-    shiftQuiz();
-  }
-}
-
-function clickAnswerHandler(e) {
-  let value = e.target.value;
-  if (!value) return;
-
-  if (currentQuiz.correct_answer === value) {
-    score += 1;
-  } else {
-    // TODO: do the wrong answer style attach here
-    console.log(`Sorry, that's wrong`);
-  }
-
-  setTimeout(renderNextQuiz, NEXT_QUESTION_SHIFT_DELAY);
-}
-
-function scoreFormSubmitHandler(e) {
-  e.preventDefault();
-
-  let name = document.querySelector("#Name");
-  players.push({
-    name: name.value,
-    score: score,
-  });
-  localStorage.setItem("nameData", JSON.stringify(players));
-  window.location.href = "./index.html";
-}
-
-scoreForm.addEventListener("submit", scoreFormSubmitHandler);
-
-function renderQuestion(quizEl, quiz) {
-  let questionEl = document.createElement("div");
-  questionEl.classList.add("Quizquestions");
-  questionEl.innerText = quiz.question;
-  quizEl.append(questionEl);
-}
-
-function renderAnswer(fieldSetEl, answer, id) {
-  let answerEl = document.createElement("input");
-  answerEl.classList.add();
-  answerEl.type = "radio";
-  answerEl.id = id;
-  answerEl.name = "quiz";
-  answerEl.value = answer;
-
-  let labelEl = document.createElement("label");
-  labelEl.htmlFor = id;
-  labelEl.innerText = answer;
-
-  fieldSetEl.append(answerEl, labelEl);
-}
-
-function assembleAnswers(quiz) {
-  let answers = [];
-  answers.push(quiz.correct_answer);
-
-  for (let i = 0; i < quiz.incorrect_answers.length; i++) {
-    answers.push(quiz.incorrect_answers[i]);
-  }
-
-  answers = shuffleArray(answers);
-
-  return answers;
-}
-
 function renderQuiz(quiz) {
   let quizEl = document.querySelector("#quiz");
 
@@ -116,3 +41,78 @@ function renderQuiz(quiz) {
     renderAnswer(fieldSetEl, answer, id);
   }
 }
+
+function renderQuestion(quizEl, quiz) {
+  let questionEl = document.createElement("div");
+  questionEl.classList.add("Quizquestions");
+  questionEl.innerText = quiz.question;
+  quizEl.append(questionEl);
+}
+
+function clickAnswerHandler(e) {
+  let value = e.target.value;
+  if (!value) return;
+
+  if (currentQuiz.correct_answer === value) {
+    score += 1;
+  } else {
+    // TODO: do the wrong answer style attach here
+    console.log(`Sorry, that's wrong`);
+  }
+
+  setTimeout(renderNextQuiz, NEXT_QUESTION_SHIFT_DELAY);
+}
+
+function assembleAnswers(quiz) {
+  let answers = [];
+  answers.push(quiz.correct_answer);
+
+  for (let i = 0; i < quiz.incorrect_answers.length; i++) {
+    answers.push(quiz.incorrect_answers[i]);
+  }
+
+  answers = shuffleArray(answers);
+
+  return answers;
+}
+
+function renderAnswer(fieldSetEl, answer, id) {
+  let answerEl = document.createElement("input");
+  answerEl.classList.add();
+  answerEl.type = "radio";
+  answerEl.id = id;
+  answerEl.name = "quiz";
+  answerEl.value = answer;
+
+  let labelEl = document.createElement("label");
+  labelEl.htmlFor = id;
+  labelEl.innerText = answer;
+
+  fieldSetEl.append(answerEl, labelEl);
+}
+
+function renderNextQuiz() {
+  document.querySelector("#quiz").innerHTML = "";
+
+  if (quizzes.length === 0) {
+    scoreForm.style.display = "block";
+    let playerScore = document.querySelector("#score__yours");
+    playerScore.innerText = score;
+  } else {
+    shiftQuiz();
+  }
+}
+
+function scoreFormSubmitHandler(e) {
+  e.preventDefault();
+
+  let name = document.querySelector("#Name");
+  players.push({
+    name: name.value,
+    score: score,
+  });
+  localStorage.setItem("nameData", JSON.stringify(players));
+  window.location.href = "./index.html";
+}
+
+scoreForm.addEventListener("submit", scoreFormSubmitHandler);
