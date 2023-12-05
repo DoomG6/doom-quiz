@@ -1,20 +1,11 @@
 "use strict";
-
-import { presetDataSet } from "./dataset.js";
+import { getQuestions } from "./api.js";
 import { shuffleArray } from "./utils.js";
 
-const IN_DEVELOPMENT = true;
 let score = 0;
 let currentQuestion;
-
-async function getQuestions() {
-  let url = "https://opentdb.com/api.php?amount=10";
-  let response = IN_DEVELOPMENT ? await presetDataSet() : await fetch(url);
-  let data = await response.json();
-  return data.results || [];
-}
-
 let questions = await getQuestions();
+
 currentQuestion = questions.shift();
 renderQuestion(currentQuestion);
 
