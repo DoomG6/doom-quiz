@@ -64,6 +64,20 @@ function scoreFormSubmitHandler(e) {
 
 scoreForm.addEventListener("submit", scoreFormSubmitHandler);
 
+function renderAnswer(fieldSetEl, answer, id) {
+  let answerEl = document.createElement("input");
+  answerEl.classList.add();
+  answerEl.type = "radio";
+  answerEl.id = id;
+  answerEl.name = "quiz";
+  answerEl.value = answer;
+
+  let labelEl = document.createElement("label");
+  labelEl.htmlFor = id;
+  labelEl.innerText = answer;
+  fieldSetEl.append(answerEl, labelEl);
+}
+
 function renderQuestion(question) {
   let questionEl = document.createElement("div");
   questionEl.classList.add("Quizquestions");
@@ -85,17 +99,6 @@ function renderQuestion(question) {
   for (let i = 0; i < answers.length; i++) {
     let answer = answers[i];
     let id = `answer_${i}`;
-
-    let answerEl = document.createElement("input");
-    answerEl.classList.add();
-    answerEl.type = "radio";
-    answerEl.id = id;
-    answerEl.name = "quiz";
-    answerEl.value = answer;
-
-    let labelEl = document.createElement("label");
-    labelEl.htmlFor = id;
-    labelEl.innerText = answer;
-    fieldSetEl.append(answerEl, labelEl);
+    renderAnswer(fieldSetEl, answer, id);
   }
 }
