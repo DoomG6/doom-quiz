@@ -7,8 +7,8 @@ const IN_DEVELOPMENT = false;
 
 async function getData() {
   let url = "https://opentdb.com/api.php?amount=10";
-  let res = IN_DEVELOPMENT ? await presetDataSet() : await fetch(url);
-  let data = await res.json();
+  let response = IN_DEVELOPMENT ? await presetDataSet() : await fetch(url);
+  let data = await response.json();
   return data.results || [];
 }
 
