@@ -5,8 +5,11 @@ function renderRank() {
   if (nameData.length === 0) {
     // placeholder "No Rank Data"
   } else {
+    let topTen = nameData.sort((a, z) => z.score - a.score).slice(0, 10);
+
     let rank = document.querySelector("#rank");
-    for (let data of nameData) {
+
+    for (let data of topTen) {
       let bar = document.createElement("div");
       bar.innerText = data.name;
       bar.classList.add("rank__bar");
