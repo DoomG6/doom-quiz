@@ -64,6 +64,13 @@ function scoreFormSubmitHandler(e) {
 
 scoreForm.addEventListener("submit", scoreFormSubmitHandler);
 
+function renderQuestion(quizEl, question) {
+  let questionEl = document.createElement("div");
+  questionEl.classList.add("Quizquestions");
+  questionEl.innerText = question.question;
+  quizEl.append(questionEl);
+}
+
 function renderAnswer(fieldSetEl, answer, id) {
   let answerEl = document.createElement("input");
   answerEl.classList.add();
@@ -79,23 +86,29 @@ function renderAnswer(fieldSetEl, answer, id) {
   fieldSetEl.append(answerEl, labelEl);
 }
 
-function renderQuiz(question) {
-  let questionEl = document.createElement("div");
-  questionEl.classList.add("Quizquestions");
-  questionEl.innerText = question.question;
-  let quizEl = document.querySelector("#quiz");
-  quizEl.append(questionEl);
-
+function assembleAnswers(question) {
   let answers = [];
   answers.push(question.correct_answer);
+
   for (let i = 0; i < question.incorrect_answers.length; i++) {
     answers.push(question.incorrect_answers[i]);
   }
+
   answers = shuffleArray(answers);
+
+  return answers;
+}
+
+function renderQuiz(question) {
+  let quizEl = document.querySelector("#quiz");
+
+  renderQuestion(quizEl, question);
 
   let fieldSetEl = document.createElement("fieldset");
   fieldSetEl.addEventListener("click", clickAnswerHandler);
   quizEl.append(fieldSetEl);
+
+  let answers = assembleAnswers(question);
 
   for (let i = 0; i < answers.length; i++) {
     let answer = answers[i];
