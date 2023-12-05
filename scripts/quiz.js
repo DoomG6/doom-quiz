@@ -17,16 +17,9 @@ let currentQuestion = renderQuestion(questions.shift());
 
 let score = 0;
 
-function clickAnswerHandler(e) {
-  let value = e.target.value;
-  if (!value) return;
-  if (currentQuestion.correct_answer === value) {
-    score += 1;
-  } else {
-    // TODO: do the wrong answer style attach here
-    console.log(`Sorry, that's wrong`);
-  }
+function renderNextQuestion() {
   document.querySelector("#quiz").innerHTML = "";
+
   if (questions.length === 0) {
     let formName = document.querySelector("#form-name");
     formName.style.display = "block";
@@ -35,6 +28,20 @@ function clickAnswerHandler(e) {
   } else {
     currentQuestion = renderQuestion(questions.shift());
   }
+}
+
+function clickAnswerHandler(e) {
+  let value = e.target.value;
+  if (!value) return;
+
+  if (currentQuestion.correct_answer === value) {
+    score += 1;
+  } else {
+    // TODO: do the wrong answer style attach here
+    console.log(`Sorry, that's wrong`);
+  }
+
+  renderNextQuestion();
 }
 
 let players = JSON.parse(localStorage.getItem("nameData")) || [];
