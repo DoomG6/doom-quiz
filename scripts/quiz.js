@@ -8,6 +8,7 @@ let score = 0;
 let quizzes = [];
 let players = [];
 let scoreFormEl;
+let quizEl;
 let currentQuiz;
 
 await main();
@@ -16,6 +17,7 @@ async function main() {
   quizzes = await getQuiz();
   players = JSON.parse(localStorage.getItem("nameData")) || [];
   scoreFormEl = document.querySelector("#form-name");
+  quizEl = document.querySelector("#quiz");
   shiftQuiz();
 }
 
@@ -25,8 +27,6 @@ function shiftQuiz() {
 }
 
 function renderQuiz(quiz) {
-  let quizEl = document.querySelector("#quiz");
-
   renderQuestion(quizEl, quiz);
 
   let fieldSetEl = document.createElement("fieldset");
@@ -64,7 +64,7 @@ function clickAnswerHandler(e) {
 }
 
 function renderNextQuiz() {
-  document.querySelector("#quiz").innerHTML = "";
+  quizEl.innerHTML = "";
 
   if (quizzes.length === 0) {
     scoreFormEl.style.display = "block";
