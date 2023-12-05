@@ -110,7 +110,7 @@ function scoreFormSubmitHandler(e) {
 
   let name = document.querySelector("#Name");
   players.push({
-    name: name.value,
+    name: name.value || "Anonymous",
     score: score,
   });
   localStorage.setItem("nameData", JSON.stringify(players));
