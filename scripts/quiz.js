@@ -1,5 +1,5 @@
 "use strict";
-import { getQuestions } from "./api.js";
+import { getQuiz } from "./api.js";
 import { shuffleArray } from "./utils.js";
 
 const NEXT_QUESTION_SHIFT_DELAY = 300;
@@ -13,7 +13,7 @@ let currentQuestion;
 await main();
 
 async function main() {
-  questions = await getQuestions();
+  questions = await getQuiz();
   players = JSON.parse(localStorage.getItem("nameData")) || [];
   scoreForm = document.querySelector("#form-name");
   shiftQuestion();
