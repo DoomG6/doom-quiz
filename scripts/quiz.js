@@ -7,7 +7,7 @@ const NEXT_QUESTION_SHIFT_DELAY = 300;
 let score = 0;
 let quizzes = [];
 let players = [];
-let scoreForm;
+let scoreFormEl;
 let currentQuiz;
 
 await main();
@@ -15,7 +15,7 @@ await main();
 async function main() {
   quizzes = await getQuiz();
   players = JSON.parse(localStorage.getItem("nameData")) || [];
-  scoreForm = document.querySelector("#form-name");
+  scoreFormEl = document.querySelector("#form-name");
   shiftQuiz();
 }
 
@@ -67,7 +67,7 @@ function renderNextQuiz() {
   document.querySelector("#quiz").innerHTML = "";
 
   if (quizzes.length === 0) {
-    scoreForm.style.display = "block";
+    scoreFormEl.style.display = "block";
     let playerScore = document.querySelector("#score__yours");
     playerScore.innerText = score;
   } else {
@@ -103,7 +103,7 @@ function renderAnswer(fieldSetEl, answer, id) {
   fieldSetEl.append(answerEl, labelEl);
 }
 
-scoreForm.addEventListener("submit", scoreFormSubmitHandler);
+scoreFormEl.addEventListener("submit", scoreFormSubmitHandler);
 
 function scoreFormSubmitHandler(e) {
   e.preventDefault();
