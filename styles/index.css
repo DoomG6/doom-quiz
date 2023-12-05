@@ -76,14 +76,21 @@ body {
   display: flex;
   flex-direction: row;
   height: 20rem;
-  gap: 1rem;
+  gap: 2rem;
   overflow-y: auto;
   align-items: flex-end;
 }
 
 .rank__bar {
-  background-color: var(--accent-color);
-  border-radius: 2px;
-  box-shadow: var(--box-shadow);
+  width: 5rem;
+  cursor: pointer;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
   color: var(--text-color);
+  background-color: var(--accent-color);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  hyphens: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
