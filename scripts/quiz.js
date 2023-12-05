@@ -3,16 +3,16 @@
 import { presetDataSet } from "./dataset.js";
 import { shuffleArray } from "./utils.js";
 
-const IN_DEVELOPMENT = false;
+const IN_DEVELOPMENT = true;
 
-async function getData() {
+async function getQuestions() {
   let url = "https://opentdb.com/api.php?amount=10";
   let response = IN_DEVELOPMENT ? await presetDataSet() : await fetch(url);
   let data = await response.json();
   return data.results || [];
 }
 
-let Questions = await getData();
+let Questions = await getQuestions();
 console.log(Questions);
 let currentQuestion = renderQuestion(Questions.shift());
 
