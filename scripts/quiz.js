@@ -4,12 +4,16 @@ import { shuffleArray } from "./utils.js";
 
 let score = 0;
 let questions = [];
+let players = [];
+let formName;
 let currentQuestion;
 
 await main();
 
 async function main() {
   questions = await getQuestions();
+  players = JSON.parse(localStorage.getItem("nameData")) || [];
+  formName = document.querySelector("#form-name");
   shiftQuestion();
 }
 
@@ -45,9 +49,6 @@ function clickAnswerHandler(e) {
   renderNextQuestion();
 }
 
-let players = JSON.parse(localStorage.getItem("nameData")) || [];
-
-let formName = document.querySelector("#form-name");
 formName.addEventListener("submit", function (e) {
   e.preventDefault();
   let Name = document.querySelector("#Name");
