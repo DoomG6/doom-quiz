@@ -9,7 +9,7 @@ async function getData() {
   let url = "https://opentdb.com/api.php?amount=10";
   let res = IN_DEVELOPMENT ? await presetDataSet() : await fetch(url);
   let data = await res.json();
-  return data.results;
+  return data.results || [];
 }
 
 let Questions = await getData();
