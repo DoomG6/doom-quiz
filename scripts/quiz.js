@@ -103,6 +103,8 @@ function renderNextQuiz() {
   }
 }
 
+scoreForm.addEventListener("submit", scoreFormSubmitHandler);
+
 function scoreFormSubmitHandler(e) {
   e.preventDefault();
 
@@ -112,7 +114,6 @@ function scoreFormSubmitHandler(e) {
     score: score,
   });
   localStorage.setItem("nameData", JSON.stringify(players));
+
   window.location.href = "./index.html";
 }
-
-scoreForm.addEventListener("submit", scoreFormSubmitHandler);
