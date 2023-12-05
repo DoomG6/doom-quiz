@@ -33,6 +33,8 @@ function clickAnswerHandler(e) {
     let formName = document.querySelector("#form-name");
     formName.style.display = "block";
     console.log(Score);
+    let yourScore = document.querySelector("#score__yours");
+    yourScore.innerText = Score;
   } else {
     currentQuestion = renderQuestion(Questions.shift());
   }
