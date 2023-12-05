@@ -5,7 +5,7 @@ import { shuffleArray } from "./utils.js";
 const NEXT_QUESTION_SHIFT_DELAY = 300;
 
 let score = 0;
-let questions = [];
+let quizzes = [];
 let players = [];
 let scoreForm;
 let currentQuestion;
@@ -13,21 +13,21 @@ let currentQuestion;
 await main();
 
 async function main() {
-  questions = await getQuiz();
+  quizzes = await getQuiz();
   players = JSON.parse(localStorage.getItem("nameData")) || [];
   scoreForm = document.querySelector("#form-name");
   shiftQuiz();
 }
 
 function shiftQuiz() {
-  currentQuestion = questions.shift();
+  currentQuestion = quizzes.shift();
   renderQuiz(currentQuestion);
 }
 
 function renderNextQuestion() {
   document.querySelector("#quiz").innerHTML = "";
 
-  if (questions.length === 0) {
+  if (quizzes.length === 0) {
     scoreForm.style.display = "block";
     let playerScore = document.querySelector("#score__yours");
     playerScore.innerText = score;
