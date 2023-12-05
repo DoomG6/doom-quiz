@@ -63,6 +63,18 @@ function clickAnswerHandler(e) {
   setTimeout(renderNextQuiz, NEXT_QUESTION_SHIFT_DELAY);
 }
 
+function renderNextQuiz() {
+  document.querySelector("#quiz").innerHTML = "";
+
+  if (quizzes.length === 0) {
+    scoreForm.style.display = "block";
+    let playerScore = document.querySelector("#score__yours");
+    playerScore.innerText = score;
+  } else {
+    shiftQuiz();
+  }
+}
+
 function assembleAnswers(quiz) {
   let answers = [];
   answers.push(quiz.correct_answer);
@@ -89,18 +101,6 @@ function renderAnswer(fieldSetEl, answer, id) {
   labelEl.innerText = answer;
 
   fieldSetEl.append(answerEl, labelEl);
-}
-
-function renderNextQuiz() {
-  document.querySelector("#quiz").innerHTML = "";
-
-  if (quizzes.length === 0) {
-    scoreForm.style.display = "block";
-    let playerScore = document.querySelector("#score__yours");
-    playerScore.innerText = score;
-  } else {
-    shiftQuiz();
-  }
 }
 
 scoreForm.addEventListener("submit", scoreFormSubmitHandler);
