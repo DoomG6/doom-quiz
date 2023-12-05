@@ -30,6 +30,7 @@ function renderQuiz(quiz) {
   renderQuestion(quizEl, quiz);
 
   let fieldSetEl = document.createElement("fieldset");
+  fieldSetEl.classList.add("answers");
   fieldSetEl.addEventListener("click", clickAnswerHandler);
   quizEl.append(fieldSetEl);
 
@@ -67,7 +68,7 @@ function renderNextQuiz() {
   quizEl.innerHTML = "";
 
   if (quizzes.length === 0) {
-    scoreFormEl.style.display = "block";
+    scoreFormEl.style.display = "flex";
     let playerScore = document.querySelector("#score__yours");
     playerScore.innerText = score;
   } else {
