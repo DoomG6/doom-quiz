@@ -1,20 +1,22 @@
 "use strict";
 
 function renderRank() {
-  let nameData = JSON.parse(localStorage.getItem("nameData")) || [];
-  if (nameData.length === 0) {
-    // placeholder "No Rank Data"
+  let players = JSON.parse(localStorage.getItem("nameData")) || [];
+  if (players.length === 0) {
+    let placeholder = document.createElement("div");
+    placeholder.innerText = "No data here";
+    rank.append(placeholder);
   } else {
-    let topTen = nameData.sort((a, z) => z.score - a.score).slice(0, 10);
+    let topTen = players.sort((a, z) => z.score - a.score).slice(0, 10);
 
     let rank = document.querySelector("#rank");
 
-    for (let data of topTen) {
+    for (let player of topTen) {
       let bar = document.createElement("div");
-      bar.innerText = data.name;
+      bar.innerText = player.name;
       bar.classList.add("rank__bar");
-      console.log(data.score / 10);
-      bar.style.height = `${(data.score / 10) * 100}%`;
+      console.log(player.score / 10);
+      bar.style.height = `${(player.score / 10) * 100}%`;
       rank.append(bar);
     }
   }
