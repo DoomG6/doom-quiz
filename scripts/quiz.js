@@ -50,7 +50,7 @@ function clickAnswerHandler(e) {
   setTimeout(renderNextQuestion, NEXT_QUESTION_SHIFT_DELAY);
 }
 
-scoreForm.addEventListener("submit", function (e) {
+function scoreFormSubmitHandler(e) {
   e.preventDefault();
 
   let Name = document.querySelector("#Name");
@@ -60,7 +60,9 @@ scoreForm.addEventListener("submit", function (e) {
   });
   localStorage.setItem("nameData", JSON.stringify(players));
   window.location.href = "./index.html";
-});
+}
+
+scoreForm.addEventListener("submit", scoreFormSubmitHandler);
 
 function renderQuestion(question) {
   let QuestionEl = document.createElement("div");
