@@ -29,8 +29,8 @@ function renderNextQuestion() {
 
   if (questions.length === 0) {
     scoreFrom.style.display = "block";
-    let yourScore = document.querySelector("#score__yours");
-    yourScore.innerText = score;
+    let playerScore = document.querySelector("#score__yours");
+    playerScore.innerText = score;
   } else {
     shiftQuestion();
   }
