@@ -2,6 +2,8 @@
 import { getQuestions } from "./api.js";
 import { shuffleArray } from "./utils.js";
 
+const NEXT_QUESTION_SHIFT_DELAY = 300;
+
 let score = 0;
 let questions = [];
 let players = [];
@@ -46,7 +48,7 @@ function clickAnswerHandler(e) {
     console.log(`Sorry, that's wrong`);
   }
 
-  renderNextQuestion();
+  setTimeout(renderNextQuestion, NEXT_QUESTION_SHIFT_DELAY);
 }
 
 formName.addEventListener("submit", function (e) {
