@@ -1,49 +1,63 @@
 @import url("./reset.css");
 
 :root {
-  --primary-bg: linear-gradient(
-    to right,
-    #000000,
-    #7f0000
-  ); /* Darkened gradient background - black to dark red */
-  --secondary-bg: #3d0000; /* Slightly darker secondary background color - dark red */
-  --accent-color: #ff4500; /* Accent color - red-orange */
-  --text-color: #ffffff; /* Text color - white */
-  --input-bg: #6b1a00; /* Input background color - dark red/brown */
-  --input-border: #4c1200; /* Input border color - slightly lighter than input background */
-  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow for an elevated look */
+  --primary-bg: linear-gradient(to right,
+      #000000,
+      #7f0000);
+  /* Darkened gradient background - black to dark red */
+  --secondary-bg: #3d0000;
+  /* Slightly darker secondary background color - dark red */
+  --accent-color: #ff4500;
+  /* Accent color - red-orange */
+  --text-color: #ffffff;
+  /* Text color - white */
+  --input-bg: #6b1a00;
+  /* Input background color - dark red/brown */
+  --input-border: #4c1200;
+  /* Input border color - slightly lighter than input background */
+  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /* Box shadow for an elevated look */
 }
 
 body {
-  font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
-  background: var(--primary-bg);
-  color: var(--text-color);
-  font-family: alice;
   font-size: 2rem;
+  font-family: alice;
+
+  display: grid;
+  place-items: center;
+  color: var(--text-color);
+  background: var(--primary-bg);
 }
 
-h1,
-.welcome {
-  padding-top: 115px;
-  text-align: center;
-  color: var(--text-color);
-  font-family: alice;
-  font-size: 5rem;
+.flames,
+.wrap {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.flames {
+  opacity: 0.4;
+  object-fit: cover;
 }
 
 .wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.welcome {
+  padding-top: 115px;
+  font-size: 5rem;
+  color: var(--text-color);
 }
 
 .welcome-button {
-  margin-top: 15px;
   padding: 40px 70px;
-  font-size: 18px;
   background-color: var(--accent-color);
   color: var(--text-color);
   text-decoration: none;
@@ -51,7 +65,6 @@ h1,
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-family: alice;
   font-size: 1.8rem;
 }
 
@@ -66,7 +79,6 @@ h1,
   gap: 1rem;
   overflow-y: auto;
   align-items: flex-end;
-  margin-top: 20px;
 }
 
 .rank__bar {
@@ -74,15 +86,4 @@ h1,
   border-radius: 2px;
   box-shadow: var(--box-shadow);
   color: var(--text-color);
-}
-
-button {
-  font-size: 20px;
-}
-
-.flames {
-  position: absolute;
-  object-fit: cover;
-  opacity: 0.4;
-  z-index: -1;
 }
