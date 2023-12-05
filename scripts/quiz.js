@@ -7,7 +7,7 @@ const NEXT_QUESTION_SHIFT_DELAY = 300;
 let score = 0;
 let questions = [];
 let players = [];
-let formName;
+let scoreFrom;
 let currentQuestion;
 
 await main();
@@ -15,7 +15,7 @@ await main();
 async function main() {
   questions = await getQuestions();
   players = JSON.parse(localStorage.getItem("nameData")) || [];
-  formName = document.querySelector("#form-name");
+  scoreFrom = document.querySelector("#form-name");
   shiftQuestion();
 }
 
@@ -28,8 +28,7 @@ function renderNextQuestion() {
   document.querySelector("#quiz").innerHTML = "";
 
   if (questions.length === 0) {
-    let formName = document.querySelector("#form-name");
-    formName.style.display = "block";
+    scoreFrom.style.display = "block";
     let yourScore = document.querySelector("#score__yours");
     yourScore.innerText = score;
   } else {
@@ -51,7 +50,7 @@ function clickAnswerHandler(e) {
   setTimeout(renderNextQuestion, NEXT_QUESTION_SHIFT_DELAY);
 }
 
-formName.addEventListener("submit", function (e) {
+scoreFrom.addEventListener("submit", function (e) {
   e.preventDefault();
   let Name = document.querySelector("#Name");
   players.push({
