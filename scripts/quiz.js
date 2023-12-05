@@ -99,16 +99,16 @@ function assembleAnswers(quiz) {
   return answers;
 }
 
-function renderQuiz(question) {
+function renderQuiz(quiz) {
   let quizEl = document.querySelector("#quiz");
 
-  renderQuestion(quizEl, question);
+  renderQuestion(quizEl, quiz);
 
   let fieldSetEl = document.createElement("fieldset");
   fieldSetEl.addEventListener("click", clickAnswerHandler);
   quizEl.append(fieldSetEl);
 
-  let answers = assembleAnswers(question);
+  let answers = assembleAnswers(quiz);
 
   for (let i = 0; i < answers.length; i++) {
     let answer = answers[i];
