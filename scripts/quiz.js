@@ -12,9 +12,8 @@ async function getQuestions() {
   return data.results || [];
 }
 
-let Questions = await getQuestions();
-console.log(Questions);
-let currentQuestion = renderQuestion(Questions.shift());
+let questions = await getQuestions();
+let currentQuestion = renderQuestion(questions.shift());
 
 let Score = 0;
 
