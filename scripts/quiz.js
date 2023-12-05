@@ -16,10 +16,10 @@ async function main() {
   questions = await getQuiz();
   players = JSON.parse(localStorage.getItem("nameData")) || [];
   scoreForm = document.querySelector("#form-name");
-  shiftQuestion();
+  shiftQuiz();
 }
 
-function shiftQuestion() {
+function shiftQuiz() {
   currentQuestion = questions.shift();
   renderQuiz(currentQuestion);
 }
@@ -32,7 +32,7 @@ function renderNextQuestion() {
     let playerScore = document.querySelector("#score__yours");
     playerScore.innerText = score;
   } else {
-    shiftQuestion();
+    shiftQuiz();
   }
 }
 
