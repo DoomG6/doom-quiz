@@ -24,7 +24,7 @@ function shiftQuiz() {
   renderQuiz(currentQuiz);
 }
 
-function renderNextQuestion() {
+function renderNextQuiz() {
   document.querySelector("#quiz").innerHTML = "";
 
   if (quizzes.length === 0) {
@@ -47,7 +47,7 @@ function clickAnswerHandler(e) {
     console.log(`Sorry, that's wrong`);
   }
 
-  setTimeout(renderNextQuestion, NEXT_QUESTION_SHIFT_DELAY);
+  setTimeout(renderNextQuiz, NEXT_QUESTION_SHIFT_DELAY);
 }
 
 function scoreFormSubmitHandler(e) {
