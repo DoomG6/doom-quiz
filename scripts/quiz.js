@@ -3,11 +3,20 @@ import { getQuestions } from "./api.js";
 import { shuffleArray } from "./utils.js";
 
 let score = 0;
+let questions = [];
 let currentQuestion;
-let questions = await getQuestions();
 
-currentQuestion = questions.shift();
-renderQuestion(currentQuestion);
+await main();
+
+async function main() {
+  questions = await getQuestions();
+  shiftQuestion();
+}
+
+function shiftQuestion() {
+  currentQuestion = questions.shift();
+  renderQuestion(currentQuestion);
+}
 
 function renderNextQuestion() {
   document.querySelector("#quiz").innerHTML = "";
@@ -18,8 +27,7 @@ function renderNextQuestion() {
     let yourScore = document.querySelector("#score__yours");
     yourScore.innerText = score;
   } else {
-    currentQuestion = questions.shift();
-    renderQuestion(currentQuestion);
+    shiftQuestion();
   }
 }
 
