@@ -3,11 +3,11 @@
 import { presetDataSet } from "./dataset.js";
 import { shuffleArray } from "./utils.js";
 
-const IN_DEVELOPMENT = true;
+const IN_DEVELOPMENT = false;
 
-let Url = "https://opentdb.com/api.php?amount=10";
 async function getData() {
-  let res = IN_DEVELOPMENT ? await presetDataSet() : await fetch(Url);
+  let url = "https://opentdb.com/api.php?amount=10";
+  let res = IN_DEVELOPMENT ? await presetDataSet() : await fetch(url);
   let data = await res.json();
   return data.results;
 }
