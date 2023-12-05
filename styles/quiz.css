@@ -3,3 +3,75 @@
 #form-name {
   display: none;
 }
+
+:root {
+  --primary-bg: linear-gradient(
+    to right,
+    #000000,
+    #7f0000
+  ); /* Darkened gradient background - black to dark red */
+  --secondary-bg: #3d0000; /* Slightly darker secondary background color - dark red */
+  --accent-color: #ff4500; /* Accent color - red-orange */
+  --text-color: #ffffff; /* Text color - white */
+  --input-bg: #6b1a00; /* Input background color - dark red/brown */
+  --input-border: #4c1200; /* Input border color - slightly lighter than input background */
+  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow for an elevated look */
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--primary-bg);
+  color: var(--text-color);
+  font-family: alice;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.quiz,
+#form-name {
+  max-width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--secondary-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+#form-name input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+button {
+  margin-top: 15px;
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #be3301;
+}
+
+input[type="radio"] {
+  width: 1.5rem;
+  height: 1.5rem;
+}

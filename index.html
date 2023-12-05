@@ -7,8 +7,20 @@
     <title>DOOM Quiz</title>
   </head>
   <body>
+    <video
+      src="./styles/spark-loop.mp4"
+      width="100%"
+      autoplay
+      loop
+      muted
+      class="flames"
+    ></video>
     <section class="wrap">
-      <button><a href="quiz.html">START</a></button>
+      <h1 class="welcome">Welcome to Doom Quiz</h1>
+      <a href="quiz.html">
+        <button class="welcome-button">START</button>
+      </a>
+      <p id="quote">Answer correctly or get doomed!</p>
       <div class="rank" id="rank"></div>
     </section>
     <script type="module" src="./scripts/index.js"></script>
