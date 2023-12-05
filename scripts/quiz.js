@@ -53,9 +53,9 @@ function clickAnswerHandler(e) {
 function scoreFormSubmitHandler(e) {
   e.preventDefault();
 
-  let Name = document.querySelector("#Name");
+  let name = document.querySelector("#Name");
   players.push({
-    name: Name.value,
+    name: name.value,
     score: score,
   });
   localStorage.setItem("nameData", JSON.stringify(players));
