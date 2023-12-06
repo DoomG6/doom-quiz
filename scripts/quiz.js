@@ -3,6 +3,9 @@ import { shuffleArray } from "./utils.js";
 
 const NEXT_QUESTION_SHIFT_DELAY = 300;
 
+let ANSWER_LABEL = "answer__label";
+let ANSWER_LABEL_RIGHT = "answer__label_right";
+let ANSWER_LABEL_WRONG = "answer__label_wrong";
 let score = 0;
 let quizzes = [];
 let players = [];
@@ -43,8 +46,6 @@ function renderQuiz(quiz, questionNumber) {
   }
 }
 
-
-
 function renderQuestion(quizEl, quiz, questionNumber) {
   let questionEl = document.createElement("div");
   questionEl.classList.add("Quizquestions");
@@ -52,16 +53,21 @@ function renderQuestion(quizEl, quiz, questionNumber) {
   quizEl.append(questionEl);
 }
 
-
 function clickAnswerHandler(e) {
   let value = e.target.value;
   if (!value) return;
 
+  let answers = document.querySelectorAll(`.${ANSWER_LABEL}`);
+  for (let answer of answers) {
+    answer.classList.remove(ANSWER_LABEL_RIGHT, ANSWER_LABEL_WRONG);
+  }
+
+  let labelEl = document.querySelector(`label[for=${e.target.id}]`);
   if (currentQuiz.correct_answer === value) {
     score += 1;
+    labelEl.classList.add(ANSWER_LABEL_RIGHT);
   } else {
-    // TODO: do the wrong answer style attach here
-    console.log(`Sorry, that's wrong`);
+    labelEl.classList.add(ANSWER_LABEL_WRONG);
   }
 
   setTimeout(renderNextQuiz, NEXT_QUESTION_SHIFT_DELAY);
@@ -101,6 +107,7 @@ function renderAnswer(fieldSetEl, answer, id) {
   answerEl.value = answer;
 
   let labelEl = document.createElement("label");
+  labelEl.classList.add(ANSWER_LABEL);
   labelEl.htmlFor = id;
   labelEl.innerText = answer;
 
