@@ -1,4 +1,3 @@
-"use strict";
 import { getQuiz } from "./api.js";
 import { shuffleArray } from "./utils.js";
 

@@ -100,4 +100,5 @@ body {
   width: 200%;
   rotate: -45deg;
   text-align: center;
+  word-wrap: break-word;
 }
