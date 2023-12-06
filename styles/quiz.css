@@ -100,3 +100,7 @@ input[type="radio"] {
   text-align: center;
   min-height: 110px;
 }
+
+#restriction {
+  font-size: small;
+}
