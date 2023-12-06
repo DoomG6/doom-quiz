@@ -24,8 +24,8 @@ body {
   padding: 0;
   background: var(--primary-bg);
   color: var(--text-color);
-  font-family: alice;
-  font-size: 3rem;
+  font-family: fantasy;
+  font-size: 1.8rem;
 }
 
 .quiz {
