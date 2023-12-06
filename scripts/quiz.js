@@ -21,12 +21,13 @@ async function main() {
 }
 
 function shiftQuiz() {
+  let questionNumber = 10 - quizzes.length;
   currentQuiz = quizzes.shift();
-  renderQuiz(currentQuiz);
+  renderQuiz(currentQuiz, questionNumber);
 }
 
-function renderQuiz(quiz) {
-  renderQuestion(quizEl, quiz);
+function renderQuiz(quiz, questionNumber) {
+  renderQuestion(quizEl, quiz, questionNumber);
 
   let fieldSetEl = document.createElement("fieldset");
   fieldSetEl.classList.add("answers");
@@ -42,12 +43,15 @@ function renderQuiz(quiz) {
   }
 }
 
-function renderQuestion(quizEl, quiz) {
+
+
+function renderQuestion(quizEl, quiz, questionNumber) {
   let questionEl = document.createElement("div");
   questionEl.classList.add("Quizquestions");
-  questionEl.innerText = quiz.question;
+  questionEl.innerText = `Question ${questionNumber + 1}: ${quiz.question}`;
   quizEl.append(questionEl);
 }
+
 
 function clickAnswerHandler(e) {
   let value = e.target.value;
