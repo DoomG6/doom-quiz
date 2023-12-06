@@ -2,10 +2,10 @@ import { getQuiz } from "./api.js";
 import { shuffleArray } from "./utils.js";
 
 const NEXT_QUESTION_SHIFT_DELAY = 300;
+const ANSWER_LABEL = "answer__label";
+const ANSWER_LABEL_RIGHT = "answer__label_right";
+const ANSWER_LABEL_WRONG = "answer__label_wrong";
 
-let ANSWER_LABEL = "answer__label";
-let ANSWER_LABEL_RIGHT = "answer__label_right";
-let ANSWER_LABEL_WRONG = "answer__label_wrong";
 let score = 0;
 let quizzes = [];
 let players = [];
