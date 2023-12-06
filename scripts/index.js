@@ -13,7 +13,7 @@ function renderRank() {
 
     for (let player of topTen) {
       let bar = document.createElement("div");
-      bar.innerText = player.name;
+      bar.setAttribute("owner", player.name);
       bar.classList.add("rank__bar");
       console.log(player.score / 10);
       bar.style.height = `${(player.score / 10) * 100}%`;

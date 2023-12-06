@@ -77,11 +77,11 @@ body {
   flex-direction: row;
   height: 20rem;
   gap: 2rem;
-  overflow-y: auto;
   align-items: flex-end;
 }
 
 .rank__bar {
+  position: relative;
   width: 5rem;
   cursor: pointer;
   display: flex;
@@ -91,9 +91,13 @@ body {
   color: var(--text-color);
   background-color: var(--accent-color);
   box-shadow: var(--box-shadow);
-  hyphens: auto;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  writing-mode: vertical-lr;
-  text-orientation: mixed;
+}
+
+.rank__bar::before {
+  content: attr(owner);
+  position: absolute;
+  top: 0;
+  width: 200%;
+  rotate: -45deg;
+  text-align: center;
 }
