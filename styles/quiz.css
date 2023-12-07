@@ -5,9 +5,7 @@
 }
 
 :root {
-  --primary-bg: linear-gradient(to right,
-      #000000,
-      #7f0000);
+  --primary-bg: linear-gradient(to right, #000000, #7f0000);
   /* Darkened gradient background - black to dark red */
   --secondary-bg: #3d0000;
   /* Slightly darker secondary background color - dark red */
@@ -117,4 +115,12 @@ input[type="radio"] {
 
 #restriction {
   font-size: small;
+}
+
+@media (max-width: 430px) {
+  .quiz,
+  #form-name {
+    width: 90%;
+    height: 80%;
+  }
 }
