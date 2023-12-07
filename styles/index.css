@@ -103,6 +103,17 @@ body {
 
 @media (max-width: 430px) {
   .welcome {
-    font-size: 3rem;
+    font-size: 2rem;
+    font-family: sans-serif;
+    text-align: center;
+  }
+  body {
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    text-align: center;
+  }
+
+  button {
+    font-family: sans-serif;
   }
 }

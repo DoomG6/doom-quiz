@@ -123,4 +123,11 @@ input[type="radio"] {
     width: 90%;
     height: 80%;
   }
+  body {
+    font-family: sans-serif;
+  }
+
+  button {
+    font-family: sans-serif;
+  }
 }
