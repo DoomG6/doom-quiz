@@ -632,9 +632,5 @@ const questions = [
 ];
 
 export async function presetDataSet() {
-  return {
-    json: async function () {
-      return { results: shuffleArray(questions).slice(0, 10) };
-    },
-  };
+  return shuffleArray(questions).slice(0, 10);
 }
