@@ -24,16 +24,16 @@ function renderRank() {
   }
 }
 
-let isSoundPlayed = false;
+renderRank();
 
+let welcomeBtnEl = document.querySelector("#welcome-button");
+welcomeBtnEl.addEventListener("click", function (e) {
+  let audio = new Audio("./dramatic-sound.mp3");
 
-  document.body.addEventListener("mousemove", function() {
-    if (isSoundPlayed === true) return;
-
-    let audio = new Audio('./dramatic-sound.mp3');
-    audio.play();
-    isSoundPlayed = true; 
+  audio.addEventListener("ended", function () {
+    let quizUrl = "./quiz.html";
+    location.href = quizUrl;
   });
 
-
-renderRank();
+  audio.play();
+});
