@@ -4,7 +4,7 @@ const IN_DEVELOPMENT = false;
 
 export async function getQuiz() {
   let url =
-    "https://opentdb.com/api.php?amount=10&category=20&difficulty=easy&type=multiple";
+    "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
   let response = IN_DEVELOPMENT ? await presetDataSet() : await fetch(url);
   let data = await response.json();
   const result = decode(data.results || []);
