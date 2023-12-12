@@ -1,7 +1,7 @@
 import { getQuiz } from "./api.js";
 import { shuffleArray } from "./utils.js";
 
-const NEXT_QUESTION_SHIFT_DELAY = 300;
+const NEXT_QUESTION_SHIFT_DELAY = 600;
 const ANSWER_LABEL = "answer__label";
 const ANSWER_LABEL_RIGHT = "answer__label_right";
 const ANSWER_LABEL_WRONG = "answer__label_wrong";
