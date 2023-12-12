@@ -27,7 +27,9 @@ function renderRank() {
 renderRank();
 
 let welcomeBtnEl = document.querySelector("#welcome-button");
-welcomeBtnEl.addEventListener("click", function (e) {
+welcomeBtnEl.addEventListener("click", function () {
+  welcomeBtnEl.classList.add("animate__flash");
+  console.log(welcomeBtnEl.classList);
   let audio = new Audio("./dramatic-sound.mp3");
 
   audio.addEventListener("ended", function () {

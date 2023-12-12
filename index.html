@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="./styles/index.css" />
     <title>DOOM Quiz</title>
   </head>
@@ -17,7 +21,12 @@
     ></video>
     <section class="wrap">
       <h1 class="welcome">Welcome to Doom Quiz</h1>
-      <button class="welcome-button" id="welcome-button">START</button>
+      <button
+        class="welcome-button animate__animated animate__infinite"
+        id="welcome-button"
+      >
+        START
+      </button>
       <p id="quote">Answer correctly or get doomed!</p>
       <div class="rank" id="rank"></div>
     </section>
