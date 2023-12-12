@@ -24,4 +24,11 @@ function renderRank() {
   }
 }
 
+
+  document.body.addEventListener("click", function() {
+    let audio = new Audio('./dramatic-sound.mp3');
+    audio.play();
+  });
+
+
 renderRank();
