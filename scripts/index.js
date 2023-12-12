@@ -24,10 +24,15 @@ function renderRank() {
   }
 }
 
+let isSoundPlayed = false;
 
-  document.body.addEventListener("click", function() {
+
+  document.body.addEventListener("mousemove", function() {
+    if (isSoundPlayed === true) return;
+
     let audio = new Audio('./dramatic-sound.mp3');
     audio.play();
+    isSoundPlayed = true; 
   });
 
 
