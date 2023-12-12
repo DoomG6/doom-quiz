@@ -1,6 +1,6 @@
 import { presetDataSet } from "./dataset.js";
 
-const IN_DEVELOPMENT = false;
+const IN_DEVELOPMENT = true;
 
 export async function getQuiz() {
   let url =
