@@ -8,6 +8,7 @@ export async function getQuiz() {
   let response = IN_DEVELOPMENT ? await presetDataSet() : await fetch(url);
   let data = await response.json();
   const result = decode(data.results || []);
+  console.log(result);
   return result;
 }
 
