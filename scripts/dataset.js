@@ -1,6 +1,10 @@
+// Importing the shuffleArray function from utils.js
 import { shuffleArray } from "./utils.js";
 
+// A static dataset of quiz questions
 const questions = [
+  // Array of question objects. Each object includes question, correct_answer,
+  // incorrect_answers, and other metadata like type, difficulty, and category.
   {
     type: "multiple",
     difficulty: "easy",
@@ -631,6 +635,8 @@ const questions = [
   },
 ];
 
+// Function to get a subset of 10 shuffled questions from the dataset
 export async function presetDataSet() {
+  // Shuffle the array of questions and slice the first 10
   return shuffleArray(questions).slice(0, 10);
 }

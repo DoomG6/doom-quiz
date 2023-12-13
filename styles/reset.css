@@ -1,12 +1,16 @@
+/* Custom font-face declaration, loading a 'alice' font from a local file */
 @font-face {
   font-family: "alice";
   src: url("./AliceInWonderland-z051.ttf") format("truetype");
 }
 
+
+/* Universal selector resetting default box-sizing to border-box for all elements */
 * {
   box-sizing: border-box;
 }
 
+/* Setting width and height to 100% for html and body elements, applying custom font */
 html,
 body {
   width: 100%;
@@ -14,11 +18,12 @@ body {
   font-family: "alice";
 }
 
+/* Resetting default styles for button elements, applying custom font */
 button {
   font-family: "alice";
 }
 
-
+/* Removing default margin from h1 elements */
 h1 {
   margin-block-start: 0;
 }

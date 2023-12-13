@@ -1,9 +1,12 @@
+/* Importing reset.css for base styling */
 @import url("./reset.css");
 
+/* Initially hiding the form for name submission and score display */
 #form-name {
   display: none;
 }
 
+/* Root pseudo-class defining similar CSS variables as in index.css */
 :root {
   --primary-bg: linear-gradient(to right, #000000, #7f0000);
   /* Darkened gradient background - black to dark red */
@@ -21,6 +24,7 @@
   /* Box shadow for an elevated look */
 }
 
+/* Styling for the body, applying background and text color */
 body {
   font-family: "Arial", sans-serif;
   margin: 0;
@@ -31,12 +35,14 @@ body {
   font-size: 1.8rem;
 }
 
+/* Flexbox layout for the quiz section */
 .quiz {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
+/* Styling and positioning for the quiz and form-name elements */
 .quiz,
 #form-name {
   width: 800px;
@@ -51,6 +57,7 @@ body {
   box-shadow: var(--box-shadow);
 }
 
+/* Flexbox layout for the form-name */
 #form-name {
   display: none;
   flex-direction: column;
@@ -58,6 +65,7 @@ body {
   align-items: center;
 }
 
+/* Styling for input fields in the form-name */
 #form-name input {
   width: 50%;
   padding: 10px;
@@ -70,6 +78,7 @@ body {
   color: var(--text-color);
 }
 
+/* Styling for buttons in the quiz */
 button {
   margin-top: 15px;
   padding: 15px 30px;
@@ -83,15 +92,18 @@ button {
   transition: background-color 0.3s ease;
 }
 
+/* Hover effect for buttons */
 button:hover {
   background-color: #be3301;
 }
 
+/* Styling for radio inputs */
 input[type="radio"] {
   width: 1.5rem;
   height: 1.5rem;
 }
 
+/* Grid layout for displaying answers */
 .answers {
   display: grid;
   grid-template-columns: 10% 90%;
@@ -100,29 +112,37 @@ input[type="radio"] {
   align-content: space-between;
 }
 
+/* Styling for labels corresponding to correct answers */
 .answer__label_right {
   color: green;
 }
 
+/* Styling for labels corresponding to incorrect answers */
 .answer__label_wrong {
   color: red;
 }
 
+/* Styling for the question container */
 .Quizquestions {
   text-align: center;
   min-height: 110px;
 }
 
+
+/* Font size for the restriction notice */
 #restriction {
   font-size: small;
 }
 
+/* Responsive styles for smaller screen sizes */
 @media (max-width: 430px) {
+
   .quiz,
   #form-name {
     width: 90%;
     height: 80%;
   }
+
   body {
     font-family: sans-serif;
   }
